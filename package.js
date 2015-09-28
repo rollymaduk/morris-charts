@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by rolly_000 on 8/3/2015.
  */
 /* Copyright (c) 2014 Paulo Sérgio Borges de Oliveira Filho
@@ -30,7 +30,7 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-    api.use(['jquery','coffeescript','reactive-var','templating'],'client');
+    api.use(['jquery','coffeescript','reactive-var','templating','bshamblen:morrisjs'],'client');
     api.addFiles(['lib.coffee', 'chart.html'], 'client');
     api.export('Rp_mchart', ['client']);
 });

@@ -19,11 +19,10 @@ Rp_mchart={
     @_getInstance(name).type.set(type)
 
   buildChart:(element)=>
-    $(element).empty()
+    $("##{element}").empty()
     item=Rp_mchart._getInstance(element)
-    console.log item
     options=item.options.get() or {}
-    settings=_.extend(options,{element: element,data:item.data.get()})
+    settings=_.extend(options,{element:element,data:item.data.get()})
     switch item.type.get()
       when 'pie'
         new Morris.Donut(settings)
@@ -45,7 +44,8 @@ Meteor.startup ->
     chartClass:->Template.instance()._chartClasses
 
   Template.rp_morris_chart.destroyed=->
-    $(@_id).empty()
+    console.log @
+    $("##{@_id}").empty()
     Rp_mchart._instances={}
     Blaze.remove(@view)
 
